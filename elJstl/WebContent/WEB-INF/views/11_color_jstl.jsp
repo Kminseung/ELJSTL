@@ -17,7 +17,7 @@
 <body>
 
 
-
+	<h3>JSP Way</h3>
 	<%
 	if( "1".equals( request.getParameter("color") ) ) {	
 	%>
@@ -34,12 +34,19 @@
 	}
 	%>
 
-
-	
-
-
-
-
+	<h3>JSTL Way</h3>
+	<!-- c:choose ~ c:when ~ c:otherwise -->
+	<c:choose>
+		<c:when test="${ param.color == 1 }"> <!-- if -->
+			<span style="color: red">빨강</span>
+		</c:when>
+		<c:when test="${ param.color == 2 }"> <!-- else if -->
+			<span style="color: green">녹색</span>
+		</c:when>
+		<c:otherwise>	<!-- else -->
+			<span style="color: blue">파랑</span>
+		</c:otherwise>
+	</c:choose>
 	
 </body>
 </html>
